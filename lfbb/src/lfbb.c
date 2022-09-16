@@ -58,7 +58,7 @@ static size_t CalcFree(size_t w, size_t r, size_t size);
 
 /******************** EXPORTED FUNCTIONS **********************/
 
-void LFBB_Init(LFBB_Inst_Type *inst, uint8_t *data_array, const size_t size) {
+void LFBB_Init(LFBB_Inst_Type *const inst, uint8_t *data_array, const size_t size) {
   assert(inst != NULL);
   assert(data_array != NULL);
   assert(size != 0U);
@@ -99,7 +99,7 @@ uint8_t *LFBB_WriteAcquire(const LFBB_Inst_Type *inst,
   return NULL;
 }
 
-void LFBB_WriteRelease(LFBB_Inst_Type *inst, const size_t written) {
+void LFBB_WriteRelease(LFBB_Inst_Type *const inst, const size_t written) {
   assert(inst != NULL);
   assert(inst->data != NULL);
 
@@ -130,7 +130,7 @@ void LFBB_WriteRelease(LFBB_Inst_Type *inst, const size_t written) {
   atomic_store_explicit(&inst->w, w, memory_order_release);
 }
 
-uint8_t *LFBB_ReadAcquire(LFBB_Inst_Type *inst, size_t *available) {
+uint8_t *LFBB_ReadAcquire(LFBB_Inst_Type *const inst, size_t *const available) {
   assert(inst != NULL);
   assert(inst->data != NULL);
   assert(available != NULL);
@@ -164,7 +164,7 @@ uint8_t *LFBB_ReadAcquire(LFBB_Inst_Type *inst, size_t *available) {
   return &inst->data[r];
 }
 
-void LFBB_ReadRelease(LFBB_Inst_Type *inst, const size_t read) {
+void LFBB_ReadRelease(LFBB_Inst_Type *const inst, const size_t read) {
   assert(inst != NULL);
   assert(inst->data != NULL);
 

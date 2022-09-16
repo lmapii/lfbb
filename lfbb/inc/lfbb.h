@@ -96,7 +96,7 @@ typedef struct {
  * @param[in] Size of data array
  * @retval None
  */
-void LFBB_Init(LFBB_Inst_Type *inst, uint8_t *data_array, size_t size);
+void LFBB_Init(LFBB_Inst_Type *const inst, uint8_t *data_array, size_t size);
 
 /**
  * @brief Acquires a linear region in the bipartite buffer for writing
@@ -112,7 +112,7 @@ uint8_t *LFBB_WriteAcquire(const LFBB_Inst_Type *inst, size_t free_required);
  * @param[in] Bytes written to the linear space
  * @retval None
  */
-void LFBB_WriteRelease(LFBB_Inst_Type *inst, size_t written);
+void LFBB_WriteRelease(LFBB_Inst_Type *const inst, size_t written);
 
 /**
  * @brief Acquires a linear region in the bipartite buffer for reading
@@ -120,7 +120,7 @@ void LFBB_WriteRelease(LFBB_Inst_Type *inst, size_t written);
  * @param[out] Available linear data in the buffer
  * @retval Pointer to the beginning of the data
  */
-uint8_t *LFBB_ReadAcquire(LFBB_Inst_Type *inst, size_t *available);
+uint8_t *LFBB_ReadAcquire(LFBB_Inst_Type *const inst, size_t *const available);
 
 /**
  * @brief Releases the bipartite buffer after a read
@@ -128,7 +128,7 @@ uint8_t *LFBB_ReadAcquire(LFBB_Inst_Type *inst, size_t *available);
  * @param[in] Bytes read from the linear region
  * @retval None
  */
-void LFBB_ReadRelease(LFBB_Inst_Type *inst, size_t read);
+void LFBB_ReadRelease(LFBB_Inst_Type *const inst, size_t read);
 
 #ifdef __cplusplus
 }
